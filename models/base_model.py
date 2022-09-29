@@ -22,11 +22,6 @@ class BaseModel():
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
-    def str_to_dt_obj(self, sr):
-        print(" year = " + sr[0:4])
-        print(" month = " + sr[5:6])
-        print(" day = " + sr[7:8])
-
     def __str__(self):
         """ String representation of BM object """
         return ("[{}] ({}) {}".format(

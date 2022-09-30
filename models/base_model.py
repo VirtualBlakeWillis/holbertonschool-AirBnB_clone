@@ -9,13 +9,11 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """ Initialize BM Object """
+
         if kwargs:
-            form = "%Y-%m-%dT%H:%M:%S.%f"
             for key, value in kwargs.items():
                 if key != "__class__":
                     setattr(self, key, value)
-                #if key in ["created_at", "updated_at"]:
-                #    self.__dict__.update({key: datetime.strptime(value, form)})
 
         else:
             self.id = str(uuid.uuid4())

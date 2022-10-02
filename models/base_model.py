@@ -2,7 +2,7 @@
 """ Base Model module """
 import uuid
 from datetime import datetime
-
+from .__init__ import storage
 
 class BaseModel():
     """ Base Model Class """
@@ -18,6 +18,7 @@ class BaseModel():
         else:
             self.id = str(uuid.uuid4())
             self.updated_at = self.created_at = datetime.now()
+            storage.new(self)
 
     def __str__(self):
         """ String representation of BM object """
@@ -27,6 +28,9 @@ class BaseModel():
     def save(self):
         """ Update attribute updated_at """
         self.updated_at = datetime.now()
+        
+        storage.save()
+        
 
     def to_dict(self):
         """ Return dictionary representation of object """

@@ -16,7 +16,7 @@ class TestFileStorage(unittest.TestCase):
     def test_class_docstring(self):
         """ Test docstring of Baase Model and its methods """
         self.assertTrue(len(FileStorage.__doc__) >= 1)
-        self.assertTrue(len(BaseModel.all.__doc__) >= 1)
-        self.assertTrue(len(BaseModel.new.__doc__) >= 1)
-        self.assertTrue(len(BaseModel.save.__doc__) >= 1)
-        self.assertTrue(len(BaseModel.reload.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.all.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.new.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.save.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.reload.__doc__) >= 1)

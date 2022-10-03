@@ -2,6 +2,8 @@
 """ File Storage Module """
 import json
 from os.path import exists
+from models.base_model import BaseModel
+
 
 class FileStorage:
     """ File Storage Class """
@@ -27,4 +29,10 @@ class FileStorage:
     def reload(self):
         if exists(self.__file_path):
             with open(self.__file_path, "r") as file_path:
-                self.__objects = json.load(file_path)
+                reloaded_dict = json.load(file_path)
+                for obj_key in reloaded_dict.keys():
+                    self.new(BaseModel(**reloaded_dict[obj_key]))
+                """ load data in (- will be dictionary with t-_dict rep of objects)
+                    convert each instance to object
+                    store in __objects
+                    """

@@ -52,4 +52,4 @@ class FileStorage:
 
                 for obj_key in bigDict.keys():
                     class_name = obj_key.split('.')
-                    self.new(valid_classes[class_name[0](**bigDict[obj_key])])
+                    self.new(valid_classes[class_name[0]](**bigDict[obj_key]))

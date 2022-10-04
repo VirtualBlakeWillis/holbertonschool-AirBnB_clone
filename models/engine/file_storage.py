@@ -4,7 +4,14 @@ import json
 from os.path import exists
 from models.base_model import BaseModel
 from models.user import User
-
+from models.city import City
+from models.place import Place
+from models.state import State
+from models.review import Review
+from models.amenity import Amenity
+valid_classes = {"BaseModel": BaseModel, "User": User, "Place": Place,
+                 "State": State, "City": City, "Amenity": Amenity,
+                 "Review": Review}
 class FileStorage:
     """ File Storage Class """
 
@@ -41,7 +48,8 @@ class FileStorage:
         """
         if exists(self.__file_path):
             with open(self.__file_path, "r") as file_path:
-                reloaded_dict = json.load(file_path)
+                bigDict = json.load(file_path)
 
-                for obj_key in reloaded_dict.keys():
-                    self.new(BaseModel(**reloaded_dict[obj_key]))
+                for obj_key in bigDict.keys():
+                    class_name = obj_key.split('.')
+                    self.new(valid_classes[class_name[0](**bigDict[obj_key])])

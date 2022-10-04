@@ -89,14 +89,21 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """ print all instances """
+
         if arg != "":
             word = arg.split(' ')
-            if word[0] not in storage.classes():
+            if word[0] not in valid_classes.keys():
                 print("** class doesn't exist **")
             else:
-                n = [str(obj) for key, obj in storage.all().items()
-                     if type(obj).__name__ == word[0]]
+                n = [
+                    str(obj) for key, obj in storage.all().items()
+                    if type(obj).__name__ == word[0]
+                ]
                 print(n)
+
+        else:
+            n = [str(obj) for key, obj in storage.all().items()]
+            print(n)
 
     def do_update(self, arg):
         """

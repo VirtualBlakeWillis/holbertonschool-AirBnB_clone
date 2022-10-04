@@ -6,11 +6,8 @@ Unittest for user.py file
 
 import inspect
 import unittest
-from unittest import mock
-import models
 import pep8
 from models.user import User
-from models.engine.file_storage import FileStorage
 import inspect
 
 

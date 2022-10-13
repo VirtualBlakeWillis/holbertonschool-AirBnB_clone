@@ -63,11 +63,11 @@ ul.pages {
 }
 
 ul.popover {
-    min-width: 83%;
+    min-width: auto;
     padding: 15px;
     margin-block-start: 0;
     display: none;
-    position: absolute;
+    position: relative;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     background-color: #FAFAFA;
